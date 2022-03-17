@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -13,8 +14,64 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,"paths": {
+      "@Components/*": [
+          "components/*"
+      ],
+      "@Common/*": [
+          "components/common/*"
+      ],
+      "@Assets/*": [
+          "assets/*"
+      ],
+      "@Configs/*": [
+          "configs/*"
+      ],
+      "@Pages/*": [
+          "pages/*"
+      ],
+      "@Layouts/*": [
+          "layouts/*"
+      ],
+      "@Themes/*": [
+          "themes/*"
+      ],
+      "@StyleSheets/*": [
+          "stylesheets/*"
+      ],
+      "@Interfaces/*": [
+          "interfaces/*"
+      ],
+      "@Metas/*": [
+          "metas/*"
+      ],
+      "@Helpers/*": [
+          "helpers/*"
+      ],
+      "@Utils/*": [
+          "utils/*"
+      ],
+      "@Hooks/*": [
+          "hooks/*"
+      ],
+      "@Hocs/*": [
+          "hocs/*"
+      ],
+      "@Reduxs/*": [
+          "reduxs/*"
+      ],
+      "@Recoils/*": [
+          "recoils/*"
+      ],
+      "@Apis/*": [
+          "apis/*"
+      ],
+      "@Constants/*": [
+          "constants/*"
+      ]
+  }
+
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }
