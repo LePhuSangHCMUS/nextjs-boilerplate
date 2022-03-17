@@ -1,5 +1,5 @@
 import layouts from "@Layouts/index"
-import styles from './Home.module.less'
+import styles from "./Home.module.css"
 const Home = () => {
   return (
     <div className={styles.Page}>
@@ -8,6 +8,10 @@ const Home = () => {
   )
 }
 
+
 Home.layout=layouts.DefaultLayout
 
+export async function getStaticProps(context: any) {
+  return { props: {  } }
+}
 export default Home
