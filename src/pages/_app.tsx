@@ -1,4 +1,4 @@
-import '../stylesheets/_global.less'
+// import '../stylesheets/_global.less'
 import 'antd/dist/antd.less'; // or 'antd/dist/antd.less'
 
 import type { AppProps } from 'next/app'

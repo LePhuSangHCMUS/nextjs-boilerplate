@@ -33,6 +33,14 @@ export async function getStaticProps(context: any) {
     const data = await res.json()
 
     // Pass data to the page via props
-    return { props: { data } }
+    return { 
+        
+    props: { data },
+ // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 10 seconds
+    // revalidate: 120, // In seconds ,
+
+}
 }
 export default Static;
