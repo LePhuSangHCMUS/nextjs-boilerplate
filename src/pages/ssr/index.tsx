@@ -30,7 +30,7 @@ function SSR(props: any) {
 export async function getServerSideProps(context: any) {
     // Fetch data from external API
     const res = await fetch(`https://6232b72e8364d63035c2419c.mockapi.io/api/users`)
-    const data = await res.json()
+    const data = await res.json();
 
     // Pass data to the page via props
     return { props: { data } }
