@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
-
+import {Button,notification} from "antd"
+import useSWR from 'swr'
+import baseApi from 'services/revalidate.api';
 function Static(props: any) {
     // console.log("4", props);
     const { data } = props;
@@ -16,10 +18,23 @@ function Static(props: any) {
     //     fetchData()
     // }, [])
 
+    const handleRefresh=()=>{
+        baseApi.revalidate().then(data=>{
+            window.location.reload();
+        }).catch(err=>{
+            notification.error(err.message||"errr")
+        
+        
+        })
+    }
     return (
+
 
         <Fragment>
             <div>Static </div>
+            <Button onClick={()=>{
+                handleRefresh()
+            }}>Refresh</Button>
             {data?.map((el: any) => {
                 return <li key={el.id}>{el.name}</li>
             })}
