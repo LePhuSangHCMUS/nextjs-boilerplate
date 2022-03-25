@@ -1,6 +1,4 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import Link from 'next/link';
-
 
 function SSR(props: any) {
     // console.log("4", props);
@@ -21,20 +19,7 @@ function SSR(props: any) {
     return (
 
         <Fragment>
-            <Link
-
-                href={{
-                    pathname: '/ssr-link',
-                    query: { name: 'test' },
-                }}
-            >
-                <a>Go to ssr link </a>
-
-
-            </Link>
-
             <div>SSR</div>
-
             {data?.map((el: any) => {
                 return <li key={el.id}>{el.name}</li>
             })}
