@@ -17,7 +17,7 @@ const DefaultLayout = (props: IProps) => {
     <div className={styles.Layout}>
       <Header />
       <div className={styles.Outlet}>{children}</div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

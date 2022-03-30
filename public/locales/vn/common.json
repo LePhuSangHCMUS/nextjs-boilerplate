@@ -1,0 +1,9 @@
+{
+  "common":{
+    "nav":{
+      "home": "Trang chủ",
+      "login":"Đăng nhập"
+
+    }
+  }
+}

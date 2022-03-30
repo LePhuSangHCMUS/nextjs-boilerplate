@@ -3,6 +3,8 @@ import 'antd/dist/antd.less'; // or 'antd/dist/antd.less'
 import Router from "next/router";
 import { useEffect, useState } from "react";
 import {Spin} from "antd"
+import { appWithTranslation } from 'next-i18next'
+
 function MyApp({ Component, pageProps }: any) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -37,4 +39,4 @@ MyApp.getInitialProps = async ({Component, ctx}:any) => {
   }
 };
 
-export default MyApp
+export default appWithTranslation(MyApp)

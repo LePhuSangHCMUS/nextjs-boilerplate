@@ -2,6 +2,8 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { Button, notification } from "antd"
 import useSWR from 'swr'
 import baseApi from 'services/revalidate.api';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
 function Static(props: any) {
     // console.log("4", props);
     const { data } = props;
@@ -43,6 +45,7 @@ function Static(props: any) {
 }
 // This gets called on every request
 export async function getStaticProps(context: any) {
+  const { locale } = context;
     // Fetch data from external API
     const res = await fetch(`https://6232b72e8364d63035c2419c.mockapi.io/api/users`)
     const data = await res.json()
@@ -50,7 +53,7 @@ export async function getStaticProps(context: any) {
     // Pass data to the page via props
     return {
 
-        props: { data },
+        props: { data, ...await serverSideTranslations(locale, ['common']), },
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
         // - At most once every 10 seconds

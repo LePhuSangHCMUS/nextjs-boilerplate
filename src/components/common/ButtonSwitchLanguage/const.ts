@@ -1,19 +1,18 @@
 
-import usaFlagIcon from "@Assets/icons/country/usa.svg";
-import vnFlagIcon from "@Assets/icons/country/vn.svg";
-
+import {usaFlagIcon,vnFlagIcon,logo} from "@Assets/icons";
+// import {locales} from "../../../consts"
 export const countryFlags = [
   {
     id: "vn",
     value:"vn",
-    key:'VN',
+    locale:"vn",
     alt:"vn-flag-icon",
     flagIcon: vnFlagIcon,
   },
   {
-    id: "usa",
-    value:"en",
-    key:'USA',
+    id: "en-US",
+    value:"en-US",
+    locale:"en-US",
     alt:"usa-flag-icon",
     flagIcon:usaFlagIcon,
   },
