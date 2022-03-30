@@ -12,8 +12,8 @@ const Home = () => {
 }
 
 
-Home.layout = layouts.DefaultLayout
-
+Home.layout = layouts.DefaultLayout;
+Home.auth=false;
 export async function getStaticProps(context: any) {
   const { locale } = context;
   return {

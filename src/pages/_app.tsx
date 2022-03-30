@@ -26,6 +26,9 @@ function MyApp({ Component, pageProps }: any) {
     };
   }, []);
   const Layout=Component?.layout||(({children}:any)=><>{children}</>);
+  // if(!Component.auth**){
+
+  // }
   return loading ? 
     <Spin></Spin>: <Layout><Component {...pageProps} /></Layout>
 }
