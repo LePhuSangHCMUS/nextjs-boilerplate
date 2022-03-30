@@ -36,3 +36,4 @@ export async function getServerSideProps(context: any) {
     return { props: { data } }
 }
 export default SSR;
+// export default SSR;

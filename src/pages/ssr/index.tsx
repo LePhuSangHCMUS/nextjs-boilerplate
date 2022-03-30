@@ -1,22 +1,29 @@
-import React, { Fragment, useEffect, useState } from 'react'
 import Link from 'next/link';
-
+import React, { Fragment,useEffect, useState } from 'react';
+import { helpers } from "../../utils";
 
 function SSR(props: any) {
     // console.log("4", props);
     const { data } = props;
-    // const [data, setData] = useState([]);
-    // useEffect(() => {
+    const [dataLocal, setData] = useState(data);
 
-    //     const fetchData = async () => {
-    //         // Fetch data from external API
-    //         const res = await fetch(`https://6232b72e8364d63035c2419c.mockapi.io/api/users`)
-    //         const data = await res.json();
-    //         setData(data)
-    //         return data;
-    //     }
-    //     fetchData()
-    // }, [])
+    console.log("OUT",helpers.checkServer());
+    
+    useEffect(() => {
+
+        // const fetchData = async () => {
+        //     // Fetch data from external API
+        //     const res = await fetch(`https://6232b72e8364d63035c2419c.mockapi.io/api/users`)
+        //     const data = await res.json();
+        //     setData(data)
+        //     return data;
+        // }
+        // fetchData()
+// console.log(props);
+console.log(helpers.checkServer());
+
+        setData([])
+    }, [])
 
     return (
 
@@ -35,7 +42,7 @@ function SSR(props: any) {
 
             <div>SSR</div>
 
-            {data?.map((el: any) => {
+            {dataLocal?.map((el: any) => {
                 return <li key={el.id}>{el.name}</li>
             })}
         </Fragment>
@@ -47,7 +54,7 @@ export async function getServerSideProps(context: any) {
     const res = await fetch(`https://6232b72e8364d63035c2419c.mockapi.io/api/users`)
     const data = await res.json();
 
-    // Pass data to the page via props
+    // Pass data to the page via props    
     return { props: { data } }
 }
 export default SSR;

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import {Button,notification} from "antd"
+import { Button, notification } from "antd"
 import useSWR from 'swr'
 import baseApi from 'services/revalidate.api';
 function Static(props: any) {
@@ -18,13 +18,13 @@ function Static(props: any) {
     //     fetchData()
     // }, [])
 
-    const handleRefresh=()=>{
-        baseApi.revalidate().then(data=>{
+    const handleRefresh = () => {
+        baseApi.revalidate().then(data => {
             window.location.reload();
-        }).catch(err=>{
-            notification.error(err.message||"errr")
-        
-        
+        }).catch(err => {
+            notification.error(err.message || "errr")
+
+
         })
     }
     return (
@@ -32,7 +32,7 @@ function Static(props: any) {
 
         <Fragment>
             <div>Static </div>
-            <Button onClick={()=>{
+            <Button onClick={() => {
                 handleRefresh()
             }}>Refresh</Button>
             {data?.map((el: any) => {
@@ -48,14 +48,14 @@ export async function getStaticProps(context: any) {
     const data = await res.json()
 
     // Pass data to the page via props
-    return { 
-        
-    props: { data },
- // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    // revalidate: 120, // In seconds ,
+    return {
 
-}
+        props: { data },
+        // Next.js will attempt to re-generate the page:
+        // - When a request comes in
+        // - At most once every 10 seconds
+        // revalidate: 120, // In seconds ,
+
+    }
 }
 export default Static;
