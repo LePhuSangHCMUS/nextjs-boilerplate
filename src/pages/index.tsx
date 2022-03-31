@@ -1,6 +1,6 @@
 import layouts from "@Layouts/index"
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import styles from "./Home.module.css"
+import styles from "./Home.module.less"
 import { Button } from "antd"
 const Home = () => {
   return (
