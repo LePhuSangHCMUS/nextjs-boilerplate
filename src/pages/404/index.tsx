@@ -3,7 +3,12 @@ import layouts from "@Layouts/index";
 import { Button, Typography } from "antd";
 import React from 'react';
 import styles from "./PageNotFound.module.less";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+
+
 const { Paragraph } = Typography;
+
 const PageNotFound = (props: any) => {
 
   return (
@@ -23,4 +28,13 @@ const PageNotFound = (props: any) => {
   );
 };
 PageNotFound.layout=layouts.EmptyLayout;
+PageNotFound.auth=false;
+export async function getStaticProps(context: any) {
+  const { locale } = context;
+  return {
+    props: {
+      ...await serverSideTranslations(locale, ['common']),
+    },
+  }
+}
 export default PageNotFound;
