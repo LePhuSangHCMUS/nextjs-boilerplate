@@ -19,7 +19,6 @@
     "next": "12.1.0",
     "next-i18next": "^10.5.0",
     "next-images": "^1.8.4",
-    "next-plugin-antd-less": "^1.8.0",
     "next-with-less": "^2.0.5",
     "qs": "^6.10.3",
     "react": "17.0.2",
