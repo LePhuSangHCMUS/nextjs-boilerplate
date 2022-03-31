@@ -5,6 +5,7 @@ import layouts from "@Layouts/index"
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router';
+import Head from 'next/head'
 
 function SSR(props: any) {
     // console.log("4", props);
@@ -33,6 +34,10 @@ function SSR(props: any) {
     return (
 
         <Fragment>
+            <Head>
+                <title>Login</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <Link
 
                 href={{
@@ -66,7 +71,7 @@ export async function getServerSideProps({ locale }: any) {
     return {
         props: {
             data,
-            ...await serverSideTranslations(locale, ['common',"login"]),
+            ...await serverSideTranslations(locale, ['common', "login"]),
         }
     }
 }
