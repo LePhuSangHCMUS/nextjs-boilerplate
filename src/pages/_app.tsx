@@ -1,10 +1,14 @@
-import '../stylesheets/_global.less'
+// import "../styles/custom-antd.less"; // Add this line 
+
+import { Spin } from "antd";
+import { appWithTranslation } from 'next-i18next';
 // import 'antd/dist/antd.less'; // or 'antd/dist/antd.less'
 import Router from "next/router";
 import { useEffect, useState } from "react";
-import {Spin} from "antd"
-import { appWithTranslation } from 'next-i18next'
-function MyApp({ Component, pageProps }: any) {
+// import '../stylesheets/_global.less';
+import { SessionProvider } from "next-auth/react"
+
+function MyApp({ Component, pageProps: { session, ...pageProps } }: any) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const start = () => {
@@ -24,18 +28,23 @@ function MyApp({ Component, pageProps }: any) {
       Router.events.off("routeChangeError", end);
     };
   }, []);
-  const Layout=Component?.layout||(({children}:any)=><>{children}</>);
+  const Layout = Component?.layout || (({ children }: any) => <>{children}</>);
   // if(!Component.auth**){
 
   // }
-  return loading ? 
-    <Spin></Spin>: <Layout><Component {...pageProps} /></Layout>
+  return loading ?
+    <Spin></Spin> : 
+    
+    <SessionProvider session={session}>
+      <Layout><Component {...pageProps} /></Layout>
+    </SessionProvider>
+
 }
 
-MyApp.getInitialProps = async ({Component, ctx}:any) => {
+MyApp.getInitialProps = async ({ Component, ctx }: any) => {
   const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
   if (Object.keys(pageProps).length > 0) {
-    return {pageProps};
+    return { pageProps };
   } else {
     return {};
   }

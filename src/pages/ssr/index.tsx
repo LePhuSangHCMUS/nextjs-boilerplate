@@ -1,16 +1,15 @@
+import SEO from '@Components/common/Seo';
+import layouts from "@Layouts/index";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { Fragment, useEffect, useState } from 'react';
 import { helpers } from "../../utils";
-import layouts from "@Layouts/index"
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useRouter } from 'next/router';
-import SEO from '@Components/common/Seo';
 function SSR(props: any) {
     // console.log("4", props);
     const { data } = props;
     const [dataLocal, setData] = useState(data);
-    const { locale } = useRouter()
+    // const { locale } = useRouter()
     console.log("OUT", helpers.checkServer());
 
     useEffect(() => {

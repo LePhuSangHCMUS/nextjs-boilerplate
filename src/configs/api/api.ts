@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { getSession } from "next-auth/react";
 
 export class Api {
     private api: AxiosInstance;
@@ -7,9 +8,14 @@ export class Api {
         this.api = axios.create(config);
         
         // this middleware is been called right before the http request is made.
-        this.api.interceptors.request.use((param: AxiosRequestConfig) => ({
-            ...param
-        }));
+        this.api.interceptors.request.use(async(param: AxiosRequestConfig) => {
+            const session :any= await getSession();
+            const newParam:any=param?{...param}:{}
+            newParam.headers["Authorization"] = `Bearer ${session?.accessToken}`;
+        
+            return ({
+            ...newParam
+        })});
         
         // this middleware is been called right before the response is get it by the method that triggers the request
         this.api.interceptors.response.use((param: AxiosResponse) => ({

@@ -44,14 +44,14 @@ const ButtonSwitchLanguage: React.FC<IProps> = (props) => {
       }}
     >
       {countryFlags.map(item => {
+        const Icon=item.flagIcon;
         return <Option
           key={item.id}
           value={item.locale}
         >
 
-          {/* <Link href={asPath} locale={item.locale}> */}
-            <img width="30px" src={item.flagIcon.src} alt={item.alt} />
-          {/* </Link> */}
+            {/* <Image  src={item.flagIcon} alt={item.alt} /> */}
+
         </Option>
       })}
     </Select>

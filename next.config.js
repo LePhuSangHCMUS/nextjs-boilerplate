@@ -4,22 +4,18 @@ const { i18n } = require('./next-i18next.config')
 
 module.exports = withLess({
   lessLoaderOptions: {
-    lessOptions: {
-      /* ... */
-      modifyVars: {
-        "primary-color": "#9900FF",
-      },
-    },
   },
-  i18n,
-  
-//   webpack(config) {
-//     config.module.rules.push({
-//       test: /\.svg$/,
-//       use: ['@svgr/webpack'],
-//     });
 
-//     return config;
-  
-// }
+  i18n,
+  // webpack(config) {
+  //   const fileLoaderRule = config.module.rules.find(
+  //     (rule) => rule.test && rule.test.test('.svg'),
+  //   );
+  //   fileLoaderRule.exclude = /\.svg$/;
+  //   config.module.rules.push({
+  //     test: /\.svg$/,
+  //     loader: require.resolve('@svgr/webpack'),
+  //   });
+  //   return config;
+  // },
 });
