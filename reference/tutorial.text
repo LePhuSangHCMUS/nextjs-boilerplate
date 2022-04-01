@@ -19,3 +19,6 @@ https://www.geeksforgeeks.org/how-to-store-single-cache-data-in-reactjs/
 
 // Improver Performance
 https://medium.com/technogise/journey-of-improving-react-app-performance-by-10x-9195d4b483d4
+
+//Avoid Rerender React Context and useReducer
+https://blog.axlight.com/posts/4-options-to-prevent-extra-rerenders-with-react-context/
